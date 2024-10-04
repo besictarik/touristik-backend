@@ -6,12 +6,14 @@ const VillasLeft = {
             label: "Title",
             type: "text",
             required: true,
+            localized: true,
         },
         {
             name: "subtitle",
             label: "Subtitle",
             type: "text",
             required: true,
+            localized: true,
         },
         {
             name: "listings",

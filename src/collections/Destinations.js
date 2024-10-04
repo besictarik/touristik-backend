@@ -6,12 +6,14 @@ const Destinations = {
             label: "Title",
             type: "text",
             required: true,
+            localized: true,
         },
         {
             name: "subtitle",
             label: "Subtitle",
             type: "text",
             required: true,
+            localized: true,
         },
         {
             name: "destinationsList",
@@ -31,6 +33,7 @@ const Destinations = {
                     label: "Location",
                     type: "text",
                     required: true,
+                    localized: true,
                 },
                 {
                     name: "link",

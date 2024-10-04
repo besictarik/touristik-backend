@@ -6,12 +6,14 @@ const AboutUs = {
             label: "Title",
             type: "text",
             required: true,
+            localized: true,
         },
         {
             name: "paragraph",
             label: "Paragraph",
             type: "textarea",
             required: true,
+            localized: true,
         },
         {
             name: "employees",

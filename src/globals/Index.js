@@ -48,7 +48,7 @@ const Index = {
             }) => {
                 // Might be corrected, T
                 const secretToken = "antemate"; // Replace with your actual secret token
-                const url = `${process.env.NEXT_PUBLIC_BASE_URL}/api/revalidate?secret=${secretToken}&id=noId&collection=index`;
+                const url = `${process.env.BASE_URL}/api/revalidate?secret=${secretToken}&id=noId&collection=index`;
 
                 try {
                     const response = await fetch(url, { method: "GET" });
