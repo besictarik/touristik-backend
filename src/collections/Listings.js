@@ -1,3 +1,4 @@
+const { ListingsSearchHandler } = require("../lib/handlers");
 const Listings = {
   slug: "listings",
   labels: {
@@ -318,6 +319,13 @@ const Listings = {
   access: {
     read: () => true,
   },
+  endpoints: [
+    {
+      path: "/",
+      method: "get",
+      handler: ListingsSearchHandler,
+    },
+  ],
 };
 
 module.exports = Listings;
