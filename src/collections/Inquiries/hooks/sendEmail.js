@@ -36,7 +36,7 @@ async function sendEmail({ args, operation, result }) {
       from: "inquiries@tst-touristik.de",
       to: `${emailAddress.trim()}`,
       subject: "We've received your inquiry",
-      text: `We usually respond within 24 hours.`,
+      text: `We usually respond within 24 hours.\n\n\nFirst name: ${firstName}\nLast name: ${lastName}\nEmail: ${emailAddress}\nPhone number: ${phoneNumber}\nLink: ${pagePath}\nCheck-in: ${checkInDate}\nCheck-out: ${checkOutDate}\nPeople: ${guests}\nMessage: ${message}`,
     };
 
     // Send email
