@@ -22,21 +22,40 @@ async function sendEmail({ args, operation, result }) {
       message,
       guests,
       pagePath,
+      listingName,
     } = args.data;
 
     // Define email message
+    const messageContent = {
+      "First name": firstName,
+      "Last name": lastName,
+      "Email address": emailAddress,
+      "Phone number": phoneNumber,
+      "Listing name": listingName,
+      Link: pagePath,
+      "Check-in": checkInDate,
+      "Check-out": checkOutDate,
+      People: guests,
+      Message: message,
+    };
+
+    const structuredMessageContent = Object.entries(messageContent)
+      .filter(([_, value]) => value !== undefined)
+      .map(([key, value]) => `${key}: ${value}`)
+      .join("\n");
+
     const toTST = {
       from: "inquiries@tst-touristik.de",
       to: `info@tst-touristik.de`,
       subject: `New inquiry from ${emailAddress}`,
-      text: `First name: ${firstName}\nLast name: ${lastName}\nEmail: ${emailAddress}\nPhone number: ${phoneNumber}\nLink: ${pagePath}\nCheck-in: ${checkInDate}\nCheck-out: ${checkOutDate}\nPeople: ${guests}\nMessage: ${message}`,
+      text: structuredMessageContent,
     };
 
     const toUser = {
       from: "inquiries@tst-touristik.de",
       to: `${emailAddress.trim()}`,
       subject: "We've received your inquiry",
-      text: `We usually respond within 24 hours.\n\n\nFirst name: ${firstName}\nLast name: ${lastName}\nEmail: ${emailAddress}\nPhone number: ${phoneNumber}\nLink: ${pagePath}\nCheck-in: ${checkInDate}\nCheck-out: ${checkOutDate}\nPeople: ${guests}\nMessage: ${message}`,
+      text: structuredMessageContent,
     };
 
     // Send email
