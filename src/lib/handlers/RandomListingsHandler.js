@@ -7,12 +7,16 @@ const RandomListingsHandler = async (req, res, next) => {
 
   // Query the Listings model to retrieve random listings
   const randomListings = await req.payload.db.collections["listings"].aggregate(
-    [{ $sample: { size: Number(count) } }, { $project: { _id: 1 } }]
+    [
+      { $match: { _status: "published" } },
+      { $sample: { size: Number(count) } },
+      { $project: { _id: 1 } },
+    ]
   );
 
   // Extract the IDs of the randomly selected listings
   const ids = randomListings.map((listing) => listing._id);
-
+  console.log(ids);
   // Construct the where clause
   const additionalConditions = where ? { ...where } : null; // Keep it null if no additional conditions
 
