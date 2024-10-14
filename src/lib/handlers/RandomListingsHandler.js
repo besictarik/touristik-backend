@@ -16,7 +16,7 @@ const RandomListingsHandler = async (req, res, next) => {
 
   // Extract the IDs of the randomly selected listings
   const ids = randomListings.map((listing) => listing._id);
-  console.log(ids);
+
   // Construct the where clause
   const additionalConditions = where ? { ...where } : null; // Keep it null if no additional conditions
 
