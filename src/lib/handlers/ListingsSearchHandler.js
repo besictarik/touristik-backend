@@ -1,4 +1,4 @@
-const { generateCroatianRegex, normalizeString } = require("./utils");
+const { generateCroatianRegex, normalizeString } = require("../utils");
 const ListingsSearchHandler = async (req, res, next) => {
   const { where } = req.query;
 

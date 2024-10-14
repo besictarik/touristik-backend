@@ -1,4 +1,8 @@
-const { ListingsSearchHandler } = require("../lib/handlers");
+const {
+  ListingsSearchHandler,
+  RandomListingsHandler,
+} = require("../lib/handlers");
+
 const Listings = {
   slug: "listings",
   labels: {
@@ -324,6 +328,11 @@ const Listings = {
       path: "/",
       method: "get",
       handler: ListingsSearchHandler,
+    },
+    {
+      path: "/random",
+      method: "get",
+      handler: RandomListingsHandler,
     },
   ],
 };
