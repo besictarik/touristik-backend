@@ -281,7 +281,7 @@ const Listings = {
         operation, // name of the operation ie. 'create', 'update'
       }) => {
         if (doc._status === "published") {
-          const secretToken = "antemate"; // Replace with your actual secret token
+          const secretToken = process.env.PAYLOAD_REVALIDATION_SECRET; // Replace with your actual secret token
           const url = `${process.env.BASE_URL}/api/revalidate?secret=${secretToken}&id=${doc.id}&collection=listings`;
 
           try {
@@ -300,7 +300,7 @@ const Listings = {
         previousDoc, // document data before updating the collection
         operation, // name of the operation ie. 'create', 'update'
       }) => {
-        const secretToken = "antemate"; // Replace with your actual secret token
+        const secretToken = process.env.PAYLOAD_REVALIDATION_SECRET; // Replace with your actual secret token
         const url = `${process.env.BASE_URL}/api/revalidate?secret=${secretToken}&id=${doc.id}&collection=listings`;
 
         try {

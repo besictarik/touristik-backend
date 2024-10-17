@@ -28,7 +28,7 @@ const AmmenityItems = {
         previousDoc, // document data before updating the collection
         operation, // name of the operation ie. 'create', 'update'
       }) => {
-        const secretToken = "antemate"; // Replace with your actual secret token
+        const secretToken = process.env.PAYLOAD_REVALIDATION_SECRET; // Replace with your actual secret token
 
         const listings = await req.payload.db.collections["listings"].find(
           {
